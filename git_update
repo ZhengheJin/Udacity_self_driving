@@ -1,0 +1,15 @@
+#!/bin/bash
+#This script is used to update the git
+Date=`date`
+# also access information as arguments from this script.
+if [ $# -ne 0 ]
+then
+	for i in `seq 1 $#` ; do
+		Date="$Date ${!i}"
+	done
+fi
+echo $Date
+git add *
+git add -u :/
+git commit -m "$Date"
+git push
