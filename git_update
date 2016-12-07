@@ -9,7 +9,7 @@ then
 	done
 fi
 echo $Date
-git add -rf .
-git add -u :/
+git add --all
+#git add -u :/
 git commit -m "$Date"
 git push
