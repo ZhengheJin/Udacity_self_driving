@@ -10,6 +10,6 @@ then
 fi
 echo $Date
 git add .
-#git add -u :/
+git add -u :/
 git commit -m "$Date"
 git push
