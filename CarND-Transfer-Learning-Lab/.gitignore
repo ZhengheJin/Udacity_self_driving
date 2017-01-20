@@ -2,5 +2,5 @@ data
 models
 .ipynb_checkpoints
 bottlenecks
-.p
-.npy
+*.p
+*.npy
