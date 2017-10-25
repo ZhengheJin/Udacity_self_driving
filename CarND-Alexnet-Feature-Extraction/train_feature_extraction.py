@@ -23,17 +23,17 @@ resized = tf.image.resize_images(features, (227, 227))
 # this allows us to redo the last layer for the traffic signs
 # model.
 fc7 = AlexNet(resized, feature_extract=True)
-fc7 = tf.stop_gradient(fc7)
+fc7 = tf.stop_gradient(fc7) #only train last layer.
 shape = (fc7.get_shape().as_list()[-1], nb_classes)
 fc8W = tf.Variable(tf.truncated_normal(shape, stddev=1e-2))
 fc8b = tf.Variable(tf.zeros(nb_classes))
 logits = tf.nn.xw_plus_b(fc7, fc8W, fc8b)
 
-cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits, labels)
+cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits = logits, labels = labels)
 loss_op = tf.reduce_mean(cross_entropy)
 opt = tf.train.AdamOptimizer()
 train_op = opt.minimize(loss_op, var_list=[fc8W, fc8b])
-init_op = tf.initialize_all_variables()
+init_op = tf.global_variables_initializer()
 
 preds = tf.arg_max(logits, 1)
 accuracy_op = tf.reduce_mean(tf.cast(tf.equal(preds, labels), tf.float32))
