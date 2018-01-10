@@ -208,6 +208,6 @@ heat = apply_threshold(heat, 1+ len(det.prev_boxes)//2)
 
 1. How to treat the occlusion.  In 26' second of the video, the black car appears and occludes the white car. The pipeline loses tracking of the white car for one or two seconds. We may need to extrapolate the trajectory of the white to predict its movement.
 
-2. How to reduce the process time and make it real-time detector. The pipeline implemented in this project takes 40-50 mins to process the 50-second video, which is already slow for offline analysis. Different classification and detection methods or frameworks may be needed to improve the calculation speed, such as CNN.
+2. How to reduce the process time and make it real-time detector. The pipeline implemented in this project takes about 35 mins to process the 50-second video, which is already slow for offline analysis. Different classification and detection methods or frameworks may be needed to improve the calculation speed, such as CNN.
 
 3. Further improving the detection accuracy and reducing the false positives. At 42' second of the video, there are some false boxes being detected. Like briefly discussed in the beginning of the writeup, more parameter tuning can be done to get a better classifier and also the heatmap algorithm can be further enhanced to reject more false detections.
