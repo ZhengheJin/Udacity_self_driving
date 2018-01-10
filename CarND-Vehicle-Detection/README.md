@@ -74,7 +74,7 @@ hog_feat = True
 | LUV      | 0.9864      |
 | HLS     | 0.984      |
 | YUV     | 0.9878      |
-| YCrCb     | 0.991      |
+| YCrCb     | 0.9904      |
 
 The highest accuracy is achieved when using color space 'YCrCb'.
 
